@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Contact\Block\ContactForm">
+        <plugin name="SergiiBuinii_Contact::add_topics"
+                type="SergiiBuinii\Contact\Plugin\Magento\Contact\Block\ContactForm"
+                disabled="false"/>
+    </type>
+    <preference for="Magento\Contact\Controller\Index\Post" type="SergiiBuinii\Contact\Preference\Controller\Index\Post" />
+</config>

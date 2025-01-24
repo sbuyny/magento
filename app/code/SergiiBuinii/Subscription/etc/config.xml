@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <SergiiBuinii_subscription>
+            <subscription_group>
+                <address_error_message>
+                    <![CDATA[The address you entered is not valid, please check again]]>
+                </address_error_message>
+                <uszipcode_error_message>
+                    <![CDATA[Postal Code should contain 5 - 9 digits Example: 12345 or 12345-6789]]>
+                </uszipcode_error_message>
+                <cazipcode_error_message>
+                    <![CDATA[Postal Code should contain 6 digits Example: K1A 0B1]]>
+                </cazipcode_error_message>
+            </subscription_group>
+        </SergiiBuinii_subscription>
+    </default>
+</config>

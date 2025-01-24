@@ -1,0 +1,17 @@
+<?php
+/**
+ * @author  Sergii Buinii <sbuyny@gmail.com>
+ */
+
+/** @var SergiiBuinii\Subscription\Helper\Data $subscriptionHelper */
+$subscriptionHelper = $this->helper("SergiiBuinii\Subscription\Helper\Data");
+$subscriptionKey = $subscriptionHelper->googleAPIKey();
+?>
+
+<?php if (isset($subscriptionKey)): ?>
+    <script async="async"
+        defer="defer"
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&key=<?php /* @escapeNotVerified */ echo $subscriptionHelper->googleAPIKey()?>"
+        src_type="url">
+    </script>
+<?php endif;?>

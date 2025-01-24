@@ -1,0 +1,18 @@
+<?php
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Framework\View\Element\Template $block */
+?>
+<div data-block="discontinued" class="discontinued-wrapper">
+    <div id="discontinued-content-wrapper" data-bind="scope: 'discontinued_content'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    </div>
+    <script type="text/x-magento-init">
+    {
+        "[data-block='discontinued']": {
+            "Magento_Ui/js/core/app": <?= /* @escapeNotVerified */ $block->getJsLayout() ?>
+        }
+    }
+    </script>
+</div>

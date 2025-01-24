@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Magento\Catalog\Pricing\Price\Pool" type="Magento\Framework\Pricing\Price\Pool">
+        <arguments>
+            <argument name="prices" xsi:type="array">
+                <item name="extended_tier_price" xsi:type="string">SergiiBuinii\Catalog\Pricing\Price\ExtendTierPrice</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <preference for="Magento\ConfigurableProduct\Pricing\Render\FinalPriceBox"
+                type="SergiiBuinii\Catalog\Pricing\Render\FinalPriceBox" />
+    <type name="Magento\Catalog\Block\Product\ProductList\Toolbar">
+        <plugin name="SergiiBuinii_Catalog::update_price_sorting"
+                type="SergiiBuinii\Catalog\Plugin\Magento\Catalog\Block\Product\ProductList\Toolbar" />
+    </type>
+</config>

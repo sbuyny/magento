@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <SergiiBuinii_customer_donations>
+            <general>
+                <minimum_price>2.00</minimum_price>
+            </general>
+        </SergiiBuinii_customer_donations>
+    </default>
+</config>

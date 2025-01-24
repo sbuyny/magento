@@ -1,0 +1,25 @@
+<?php
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Framework\View\Element\Template $block */
+?>
+<?php
+use SergiiBuinii\Catalog\Helper\Config;
+
+/** @var \SergiiBuinii\Catalog\Helper\Config $config */
+$config = $this->helper(Config::class);
+?>
+<script>
+    window.swatchRenderer = {
+        isPreselectEnabled: <?= /* @escapeNotVerified */ (int) $config->isEnabledPreSelect() ?>
+    };
+
+    require(['jquery', 'mage/cookies'], function($) {
+        $(window).load(function () {
+            if ($('body').hasClass('catalog-category-view')) {
+                $.mage.cookies.clear('preselected-swatches');
+            }
+        });
+    });
+</script>

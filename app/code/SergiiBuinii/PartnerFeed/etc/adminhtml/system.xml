@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="SergiiBuinii_feed" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>Partner Feed</label>
+            <tab>SergiiBuinii</tab>
+            <resource>SergiiBuinii_PartnerFeed::feed</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Settings</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="frequency" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="0"
+                       showInStore="0">
+                    <label>Import Frequency</label>
+                    <source_model>SergiiBuinii\PartnerFeed\Model\Config\Source\Frequency</source_model>
+                    <backend_model>SergiiBuinii\PartnerFeed\Model\Config\Backend\Feed\Import</backend_model>
+                    <comment>Select the time in minutes for the feed import to run</comment>
+                    <depends>
+                        <field id="*/*/enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="frontend" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Frontend</label>
+                <field id="price_difference" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Price Difference</label>
+                    <comment>Max difference between partner feed price and magento product price</comment>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <depends>
+                    <field id="*/general/enabled">1</field>
+                </depends>
+            </group>
+            <group id="developer" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Developer</label>
+                <field id="base_logging" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Base Logging</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <depends>
+                    <field id="*/general/enabled">1</field>
+                </depends>
+            </group>
+        </section>
+    </system>
+</config>

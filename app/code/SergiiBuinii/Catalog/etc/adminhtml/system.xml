@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="sergiibuinii_catalog" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>Catalog</label>
+            <tab>sergiibuinii</tab>
+            <resource>SergiiBuinii_Base::sergiibuinii_base</resource>
+            <group id="sticky" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Sticky</label>
+                <field id="elements" translate="label" sortOrder="10"
+                       showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Elements</label>
+                    <frontend_model>SergiiBuinii\Catalog\Block\Adminhtml\System\Config\Sticky</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+            </group>
+            <group id="product_listing" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Product Listing</label>
+                <field id="enabled_pre_select" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled Pre Select</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Will automatically pre select configurable attributes on PDP if was chosen on PLP.</comment>
+                </field>
+            </group>
+            <group id="product_image" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Product Image</label>
+                <field id="configurable_product_image" translate="label comment" type="select" sortOrder="10" showInDefault="0" showInWebsite="0" showInStore="0">
+                    <label>Configurable Product Image</label>
+                    <source_model>Magento\Catalog\Model\Config\Source\Product\Thumbnail</source_model>
+                    <comment>Use parent product or itself image for print order and order view.</comment>
+                </field>
+            </group>
+            <group id="discontinued" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Discontinued Products</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="discontinued_attribute_code" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Discontinued Attribute Code</label>
+                    <comment>Will check this attribute enabled when product will out-of-stock.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="discounted_text" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Discontinued Text</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="product_suggestion_enabled" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product Suggestion Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="product_suggestion_sku_attribute_code" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product Suggestion SKU Attribute Code</label>
+                    <comment>Will get product from this attribute for suggestion in discontinued block.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="product_suggestion_enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+        <section id="catalog">
+            <group id="seo">
+                <field id="product_use_categories_plp" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Use Categories Path for Product List Page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

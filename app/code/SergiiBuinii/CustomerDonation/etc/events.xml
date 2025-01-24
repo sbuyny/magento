@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="controller_action_predispatch_checkout_index_index">
+        <observer name="checkIsDonationRequired"
+                  instance="SergiiBuinii\CustomerDonation\Observer\CheckIsDonationRequiredObserver" />
+    </event>
+
+    <event name="customer_group_load_after">
+        <observer name="loadAdditionalDataToCustomerGroup"
+                  instance="SergiiBuinii\CustomerDonation\Observer\LoadAdditionalDataToCustomerGroup" />
+    </event>
+    <event name="customer_group_save_after">
+        <observer name="saveAdditionalDataToCustomerGroup"
+                  instance="SergiiBuinii\CustomerDonation\Observer\SaveAdditionalDataToCustomerGroup" />
+    </event>
+    <event name="core_collection_abstract_load_after">
+        <observer name="loadAdditionalDataToCustomerGroupCollection"
+                  instance="SergiiBuinii\CustomerDonation\Observer\LoadAdditionalDataToCustomerGroupCollection" />
+    </event>
+</config>

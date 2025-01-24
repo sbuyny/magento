@@ -1,0 +1,28 @@
+<?php
+/**
+ * @var $viewModel \SergiiBuinii\CustomerDonation\ViewModel\Donation
+ */
+$viewModel = $block->getViewModel();
+?>
+
+<div data-block="donation" data-bind="scope: 'donation'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+    {
+        "[data-block='donation']": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "donation": {
+                        "component": "SergiiBuinii_CustomerDonation/js/view/donation",
+                        "config": {
+                            "template": "SergiiBuinii_CustomerDonation/donation",
+                            "has_donation": "<?= /* @escapeNotVerified */ $viewModel->hasDonation() ?>",
+                            "items": <?= /* @escapeNotVerified */ $viewModel->getItems() ?>
+                        }
+                    }
+                }
+            }
+        }
+    }
+</script>

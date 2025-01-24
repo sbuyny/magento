@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <SergiiBuinii_catalog>
+            <sticky>
+                <elements><![CDATA[{"_1555657078977_977":{"link":"#tab-label-description-attribute","element_class":"tab-anchor","label":"Details & Specs","position":"0"},"_1555658001544_544":{"link":"#tab-label-additional","element_class":"tab-anchor","label":"Features","position":"1"},"_1555658002232_232":{"link":"#tab-label-reviews","element_class":"","label":"Reviews","position":"2"},"_1555658002762_762":{"link":"#size-chart","element_class":"","label":"Size & Fit Guide","position":"3"}}]]></elements>
+            </sticky>
+            <product_listing>
+                <enabled_pre_select>0</enabled_pre_select>
+            </product_listing>
+            <product_image>
+                <configurable_product_image>itself</configurable_product_image>
+            </product_image>
+            <discontinued>
+                <enabled>0</enabled>
+                <discontinued_attribute_code>or_discontinued</discontinued_attribute_code>
+                <discounted_text>Sorry, this item has been discontinued</discounted_text>
+                <product_suggestion_enabled>1</product_suggestion_enabled>
+                <product_suggestion_sku_attribute_code>or_discontinued_suggestion_sku</product_suggestion_sku_attribute_code>
+            </discontinued>
+        </SergiiBuinii_catalog>
+        <seo>
+            <product_url_suffix>.html</product_url_suffix>
+            <category_url_suffix>.html</category_url_suffix>
+            <product_use_categories>0</product_use_categories>
+            <save_rewrites_history>1</save_rewrites_history>
+            <title_separator>-</title_separator>
+            <product_use_categories_plp>1</product_use_categories_plp>
+            <category_canonical_tag>0</category_canonical_tag>
+            <product_canonical_tag>0</product_canonical_tag>
+        </seo>
+    </default>
+</config>

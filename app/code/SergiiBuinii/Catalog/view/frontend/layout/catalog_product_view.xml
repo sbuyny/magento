@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.main">
+            <container name="discontinued.wrapper" htmlTag="div" htmlClass="discontinued-wrapper" after="-">
+                <block class="Magento\Framework\View\Element\Template" name="discontinued" template="SergiiBuinii_Catalog::discontinued.phtml">
+                    <arguments>
+                        <argument name="jsLayout" xsi:type="array">
+                            <item name="components" xsi:type="array">
+                                <item name="discontinued_content" xsi:type="array">
+                                    <item name="component" xsi:type="string">SergiiBuinii_Catalog/js/view/discontinued</item>
+                                    <item name="config" xsi:type="array">
+                                        <item name="template" xsi:type="string">SergiiBuinii_Catalog/discontinued</item>
+                                    </item>
+                                </item>
+                            </item>
+                        </argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

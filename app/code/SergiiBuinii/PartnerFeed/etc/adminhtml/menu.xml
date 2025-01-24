@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="SergiiBuinii_PartnerFeed::feed"
+			 module="SergiiBuinii_PartnerFeed"
+			 parent="SergiiBuinii_Base::SergiiBuinii_base"
+			 resource="SergiiBuinii_PartnerFeed::feed"
+			 sortOrder="40"
+			 title="Partner Feeds"/>
+		<add action="SergiiBuinii_feed/feed/index"
+			 id="SergiiBuinii_PartnerFeed::manage_feed"
+			 module="SergiiBuinii_PartnerFeed"
+			 parent="SergiiBuinii_PartnerFeed::feed"
+			 resource="SergiiBuinii_PartnerFeed::manage_feed"
+			 sortOrder="41"
+			 title="Manage Feeds"/>
+		<add action="SergiiBuinii_feed/partner/index"
+			 id="SergiiBuinii_PartnerFeed::manage_partner"
+			 module="SergiiBuinii_PartnerFeed"
+			 parent="SergiiBuinii_PartnerFeed::feed"
+			 resource="SergiiBuinii_PartnerFeed::manage_partner"
+			 sortOrder="41"
+			 title="Manage Partners"/>
+	</menu>
+</config>

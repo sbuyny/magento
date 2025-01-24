@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="SergiiBuinii\Subscription\Api\Data\SubscriptionSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+    <preference for="SergiiBuinii\Subscription\Api\Data\SubscriptionInterface" type="SergiiBuinii\Subscription\Model\Subscription" />
+    <preference for="SergiiBuinii\Subscription\Api\SubscriptionRepositoryInterface" type="SergiiBuinii\Subscription\Model\SubscriptionRepository" />
+
+    <virtualType name="SergiiBuiniiSubscriptionGridDataProvider" type="SergiiBuinii\Subscription\Ui\DataProvider\Subscription\SubscriptionDataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">SergiiBuinii\Subscription\Model\ResourceModel\Subscription\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">SergiiBuiniiSubscriptionGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="SergiiBuinii_subscription_listing_data_source" xsi:type="string">SergiiBuinii\Subscription\Model\ResourceModel\Subscription\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

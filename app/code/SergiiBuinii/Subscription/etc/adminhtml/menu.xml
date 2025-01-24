@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="SergiiBuinii_Subscription::subscription"
+             title="Subscriptions"
+             resource="SergiiBuinii_Subscription::subscription"
+             module="SergiiBuinii_Subscription"
+             parent="SergiiBuinii_Base::SergiiBuinii_base"
+             sortOrder="50"/>
+        <add id="SergiiBuinii_Subscription::manage_subscription"
+             title="Subscription Management"
+             resource="SergiiBuinii_Subscription::manage_subscription"
+             module="SergiiBuinii_Subscription"
+             parent="SergiiBuinii_Subscription::subscription"
+             action="SergiiBuinii_subscription/subscription/"
+             sortOrder="10"/>
+    </menu>
+</config>

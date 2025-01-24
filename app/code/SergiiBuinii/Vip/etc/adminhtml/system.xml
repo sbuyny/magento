@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="sergiibuinii_vip_customer" translate="label" type="text" sortOrder="115" showInDefault="1"
+                 showInWebsite="0" showInStore="0">
+            <label>Vip Customers</label>
+            <tab>sergiibuinii</tab>
+            <resource>SergiiBuinii_Base::sergiibuinii_base</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1"
+                   showInWebsite="0" showInStore="0">
+                <label>General</label>
+                <field id="check_expiration_date" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0"
+                       showInStore="0" type="select">
+                    <label>Check expiration date</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Check expiration date for vip customers and update customer group</comment>
+                </field>
+                <field id="downgrade_mapping" translate="label" sortOrder="30"
+                       showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Group Update Mapping</label>
+                    <frontend_model>SergiiBuinii\Vip\Block\Adminhtml\System\Config\DowngradeMapping</frontend_model>
+                    <backend_model>SergiiBuinii\Vip\Model\Config\Backend\Serialized\DowngradeMapping</backend_model>
+                    <comment>Mapping for updating customer group when "vip" status is expired.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

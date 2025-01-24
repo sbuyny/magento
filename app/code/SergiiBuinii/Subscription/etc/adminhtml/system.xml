@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="SergiiBuinii_subscription" translate="label" type="text" sortOrder="999" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>Footer Sign Up</label>
+            <tab>SergiiBuinii</tab>
+            <resource>SergiiBuinii_Subscription::subscription</resource>
+            <group id="subscription_group" translate="label" type="text" sortOrder="25" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Footer Sign Up Messages</label>
+                <field id="google_api_key" translate="label comment" type="text" sortOrder="1" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Google API Key</label>
+                    <comment>
+                        <![CDATA["This is for Google API key"]]>
+                    </comment>
+                </field>
+                <field id="address_error_message" translate="label comment" type="textarea" sortOrder="1" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Address Error Message</label>
+                    <comment>
+                        <![CDATA["The text above will display the Error Message for address"]]>
+                    </comment>
+                </field>
+                <field id="uszipcode_error_message" translate="label comment" type="textarea" sortOrder="1" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Error Message for Zip Code (US)</label>
+                    <comment>
+                        <![CDATA["Error message for US Zip codes"]]>
+                    </comment>
+                </field>
+                <field id="cazipcode_error_message" translate="label comment" type="textarea" sortOrder="1" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Error Message for Zip Code (CA)</label>
+                    <comment>
+                        <![CDATA["Error message for Canada Zip codes"]]>
+                    </comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

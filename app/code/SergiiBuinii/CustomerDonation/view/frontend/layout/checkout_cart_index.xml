@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="checkout.cart.bottom">
+            <container name="checkout.cart.donation" htmlTag="div" htmlClass="cart-donation">
+                <block class="Magento\Framework\View\Element\Template" name="donation.widget" template="SergiiBuinii_CustomerDonation::checkout/cart/donation.phtml">
+                    <arguments>
+                        <argument name="view_model" xsi:type="object">SergiiBuinii\CustomerDonation\ViewModel\Donation</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

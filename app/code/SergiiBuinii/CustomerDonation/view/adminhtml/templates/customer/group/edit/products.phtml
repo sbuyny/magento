@@ -1,0 +1,33 @@
+<?php
+/**
+ * @author  Sergii Buinii <sbuyny@gmail.com>
+ */
+?>
+<?php
+/**
+ * @var $block \SergiiBuinii\CustomerDonation\Block\Adminhtml\Group\Edit\Form\Element\ProductGridField
+ * @var $blockGrid \SergiiBuinii\CustomerDonation\Block\Adminhtml\Group\Edit\Form\Element\Field\ProductGrid
+ */
+?>
+<?php
+$blockGrid = $block->getBlockGrid();
+$gridJsObjectName = $blockGrid->getJsObjectName();
+?>
+<div id="<?php echo $block->getProductGridKey(); ?>-head">
+    <?php echo $block->getGridHtml(); ?>
+</div>
+<input type="hidden" name="<?php echo $block->getInputName(); ?>" id="admin_tagged_products" data-form-part="tag_form" value="" />
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "SergiiBuinii_CustomerDonation/customer/group/edit/donate-products": {
+                "selectedProducts": <?php /* @escapeNotVerified */ echo $blockGrid->getProductsJson(); ?>,
+                "gridJsObjectName": <?php /* @escapeNotVerified */ echo '"' . $gridJsObjectName . '"' ?: '{}'; ?>
+            }
+        }
+    }
+</script>
+<!-- @todo remove when "UI components" will support such initialization -->
+<script>
+    require('mage/apply/main').apply();
+</script>

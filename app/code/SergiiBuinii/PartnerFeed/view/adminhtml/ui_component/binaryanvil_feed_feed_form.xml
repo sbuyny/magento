@@ -1,0 +1,135 @@
+<?xml version="1.0" ?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">SergiiBuinii_feed_feed_form.feed_form_data_source</item>
+			<item name="deps" xsi:type="string">SergiiBuinii_feed_feed_form.feed_form_data_source</item>
+		</item>
+		<item name="label" translate="true" xsi:type="string">General Information</item>
+		<item name="config" xsi:type="array">
+			<item name="dataScope" xsi:type="string">data</item>
+			<item name="namespace" xsi:type="string">SergiiBuinii_feed_feed_form</item>
+		</item>
+		<item name="template" xsi:type="string">templates/form/collapsible</item>
+		<item name="buttons" xsi:type="array">
+			<item name="back" xsi:type="string">SergiiBuinii\PartnerFeed\Block\Adminhtml\Feed\Edit\BackButton</item>
+			<item name="delete" xsi:type="string">SergiiBuinii\PartnerFeed\Block\Adminhtml\Feed\Edit\DeleteButton</item>
+			<item name="save" xsi:type="string">SergiiBuinii\PartnerFeed\Block\Adminhtml\Feed\Edit\SaveButton</item>
+			<item name="save_and_continue" xsi:type="string">SergiiBuinii\PartnerFeed\Block\Adminhtml\Feed\Edit\SaveAndContinueButton</item>
+		</item>
+	</argument>
+	<dataSource name="feed_form_data_source">
+		<argument name="dataProvider" xsi:type="configurableObject">
+			<argument name="class" xsi:type="string">SergiiBuinii\PartnerFeed\Model\Feed\DataProvider</argument>
+			<argument name="name" xsi:type="string">feed_form_data_source</argument>
+			<argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+			<argument name="requestFieldName" xsi:type="string">entity_id</argument>
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="submit_url" path="*/*/save" xsi:type="url"/>
+				</item>
+			</argument>
+		</argument>
+		<argument name="data" xsi:type="array">
+			<item name="js_config" xsi:type="array">
+				<item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+			</item>
+		</argument>
+	</dataSource>
+	<fieldset name="General">
+		<argument name="data" xsi:type="array">
+			<item name="config" xsi:type="array">
+				<item name="label" xsi:type="string"/>
+			</item>
+		</argument>
+		<field name="entity_id">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="visible" xsi:type="boolean">false</item>
+					<item name="dataType" xsi:type="string">text</item>
+					<item name="formElement" xsi:type="string">input</item>
+					<item name="source" xsi:type="string">Feed</item>
+					<item name="dataScope" xsi:type="string">entity_id</item>
+				</item>
+			</argument>
+		</field>
+		<field name="status">
+			<argument name="data" xsi:type="array">
+				<item name="options" xsi:type="object">SergiiBuinii\PartnerFeed\Model\Feed\Source\Status</item>
+				<item name="config" xsi:type="array">
+					<item name="dataType" xsi:type="string">text</item>
+					<item name="label" xsi:type="string" translate="true">Status</item>
+					<item name="formElement" xsi:type="string">select</item>
+					<item name="source" xsi:type="string">Feed</item>
+					<item name="dataScope" xsi:type="string">status</item>
+					<item name="default" xsi:type="string">0</item>
+					<item name="validation" xsi:type="array">
+						<item name="required-entry" xsi:type="boolean">true</item>
+					</item>
+				</item>
+			</argument>
+		</field>
+		<field name="partner_id">
+			<argument name="data" xsi:type="array">
+				<item name="options" xsi:type="object">SergiiBuinii\PartnerFeed\Model\Partner\Source\Partner</item>
+				<item name="config" xsi:type="array">
+					<item name="dataType" xsi:type="string">text</item>
+					<item name="label" xsi:type="string" translate="true">Parent</item>
+					<item name="formElement" xsi:type="string">select</item>
+					<item name="source" xsi:type="string">Feed</item>
+					<item name="dataScope" xsi:type="string">partner_id</item>
+					<item name="default" xsi:type="string">0</item>
+					<item name="validation" xsi:type="array">
+						<item name="required-entry" xsi:type="boolean">true</item>
+					</item>
+				</item>
+			</argument>
+		</field>
+		<field name="upc">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="dataType" xsi:type="string">text</item>
+					<item name="label" translate="true" xsi:type="string">UPC Code</item>
+					<item name="formElement" xsi:type="string">input</item>
+					<item name="source" xsi:type="string">Feed</item>
+					<item name="sortOrder" xsi:type="number">20</item>
+					<item name="dataScope" xsi:type="string">upc</item>
+					<item name="validation" xsi:type="array">
+						<item name="required-entry" xsi:type="boolean">false</item>
+					</item>
+				</item>
+			</argument>
+		</field>
+		<field name="actual_price">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="dataType" xsi:type="string">text</item>
+					<item name="label" translate="true" xsi:type="string">Actual Price</item>
+					<item name="formElement" xsi:type="string">input</item>
+					<item name="source" xsi:type="string">Feed</item>
+					<item name="disabled" xsi:type="boolean">false</item>
+					<item name="sortOrder" xsi:type="number">25</item>
+					<item name="dataScope" xsi:type="string">actual_price</item>
+					<item name="validation" xsi:type="array">
+						<item name="required-entry" xsi:type="boolean">false</item>
+					</item>
+				</item>
+			</argument>
+		</field>
+		<field name="serialized_data">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="dataType" xsi:type="string">text</item>
+					<item name="label" translate="true" xsi:type="string">Feed Data</item>
+					<item name="formElement" xsi:type="string">textarea</item>
+					<item name="source" xsi:type="string">Feed</item>
+					<item name="sortOrder" xsi:type="number">60</item>
+					<item name="dataScope" xsi:type="string">serialized_data</item>
+					<item name="validation" xsi:type="array">
+						<item name="required-entry" xsi:type="boolean">false</item>
+					</item>
+				</item>
+			</argument>
+		</field>
+	</fieldset>
+</form>

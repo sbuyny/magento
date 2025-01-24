@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="SergiiBuinii\PartnerFeed\Api\Data\FeedSearchResultsInterface"
+				type="Magento\Framework\Api\SearchResults" />
+	<preference for="SergiiBuinii\PartnerFeed\Api\Data\PartnerSearchResultsInterface"
+				type="Magento\Framework\Api\SearchResults" />
+	<virtualType name="SergiiBuinii\PartnerFeed\Model\ResourceModel\Feed\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="const">SergiiBuinii\PartnerFeed\Model\ResourceModel\Feed::DB_SCHEMA_MAIN_TABLE</argument>
+			<argument name="resourceModel" xsi:type="string">SergiiBuinii\PartnerFeed\Model\ResourceModel\Feed\Collection</argument>
+		</arguments>
+	</virtualType>
+
+	<virtualType name="SergiiBuinii\PartnerFeed\Model\ResourceModel\Partner\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="const">SergiiBuinii\PartnerFeed\Model\ResourceModel\Partner::DB_SCHEMA_MAIN_TABLE</argument>
+			<argument name="resourceModel" xsi:type="string">SergiiBuinii\PartnerFeed\Model\ResourceModel\Partner\Collection</argument>
+		</arguments>
+	</virtualType>
+
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="SergiiBuinii_feed_feed_grid_data_source" xsi:type="string">SergiiBuinii\PartnerFeed\Model\ResourceModel\Feed\Grid\Collection</item>
+				<item name="SergiiBuinii_feed_partner_listing_data_source" xsi:type="string">SergiiBuinii\PartnerFeed\Model\ResourceModel\Partner\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+
+	<type name="SergiiBuinii\PartnerFeed\Logger\DebugLogger">
+		<arguments>
+			<argument name="name" xsi:type="string">feedLogger</argument>
+			<argument name="handlers"  xsi:type="array">
+				<item name="system" xsi:type="object">SergiiBuinii\PartnerFeed\Logger\Handler\Debug</item>
+			</argument>
+		</arguments>
+	</type>
+
+</config>

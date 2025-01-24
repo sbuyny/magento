@@ -1,0 +1,87 @@
+<?php
+/**
+ * @author  Sergii Buinii <sbuyny@gmail.com>
+ */
+?>
+<?php
+/** @var \SergiiBuinii\PartnerFeed\Block\Product\Feed $block */
+$isConfigurable = $block->getProduct()->getTypeId() === 'configurable';
+?>
+
+<?php if ($isConfigurable) :?>
+    <?php
+    /** @var \SergiiBuinii\PartnerFeed\Model\ResourceModel\Feed\Collection $feeds */
+    $options = $block->getFeedsForConfigurable();
+    ?>
+    <?php foreach ($options as $productId => $feeds): ?>
+        <div id="feed-id-<?= $productId ?>" style="display: none">
+            <?php foreach ($feeds as $feed): ?>
+                <?php
+                $data = $feed->getDecodedData();
+                $partner = $feed->getPartner();
+                ?>
+                <div class="feed-container">
+                    <div class="partner-name"><?= $partner?></div>
+                    <div class="product-name"><?= $data->getName()?></div>
+                    <div class="button">
+                        <a class="buy-url action primary bordered" href="<?= $data->getBuyurl()?>" target="_blank">
+                            <?= __('Buy ')?><span class="price"><?= $data->getPrice()?></span>
+                        </a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php endforeach; ?>
+    <script type="text/javascript">
+        require(['jquery','underscore'], function(jQuery,_){
+            jQuery(window).load(function(){
+                jQuery( ".product-options-wrapper div" ).click(function() {
+                    selectedProduct();
+                });
+            });
+
+            function selectedProduct() {
+                var selected_options = {};
+                jQuery('div.swatch-attribute').each(function(k,v){
+                    var attribute_id    = jQuery(v).attr('attribute-id');
+                    var option_selected = jQuery(v).attr('option-selected');
+                    if(!attribute_id || !option_selected){ return;}
+                    selected_options[attribute_id] = option_selected;
+                });
+
+                var product_id_index = jQuery('[data-role=swatch-options]').data('mageSwatchRenderer').options.jsonConfig.index;
+
+                jQuery.each(product_id_index, function(product_id,attributes){
+                    var productIsSelected = function(attributes, selected_options){
+                        return _.isEqual(attributes, selected_options);
+                    };
+                    if(productIsSelected(attributes, selected_options)){
+                        jQuery("[id^='feed-id']").hide();
+                        jQuery('#feed-id-'+ product_id).show();
+                    }
+                });
+            }
+        });
+    </script>
+<?php else: ?>
+    <?php
+    /** @var \SergiiBuinii\PartnerFeed\Model\ResourceModel\Feed\Collection $feeds */
+    $feeds = $block->getPartnerFeeds();
+    ?>
+    <?php foreach ($feeds as $feed): ?>
+        <?php
+        $data = $feed->getDecodedData();
+        $partner = $feed->getPartner();
+        ?>
+        <div class="feed-container">
+            <div class="partner-name"><?= $partner?></div>
+            <div class="product-name"><?= $data->getName()?></div>
+            <div class="button">
+                <a class="buy-url action primary bordered" href="<?= $data->getBuyurl()?>">
+                    <?= __('Buy ')?><span class="price"><?= $data->getPrice()?></span>
+                </a>
+            </div>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>
+

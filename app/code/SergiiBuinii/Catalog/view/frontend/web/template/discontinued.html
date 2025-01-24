@@ -1,0 +1,5 @@
+<div data-bind="visible: isVisible()" class="discontinued-content">
+    <span class="sorry">Sorry, this item has been discontinued</span>
+    <span data-bind="visible: isSuggestionVisible()">You might like the <a data-bind="html: getSuggestionProductName(),
+        attr: {href: getSuggestionProductUrl()}"></a></span>
+</div>

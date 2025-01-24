@@ -1,0 +1,48 @@
+
+<div data-bind="visible: isVisible()">
+    <h2 data-bind="i18n: 'Donation programs'"></h2>
+    <h3 data-bind="i18n: 'Choose a donation program'"></h3>
+    <form class="add-to-cart" method="post" data-bind="attr: {action: addToCartUrl()}">
+        <select name="donation_product_id" id="donation_product_select" data-bind="event:{change: changeDonation}">
+            <option value="0" data-bind="i18n: 'Choose a donation program'"></option>
+            <!-- ko foreach: getItems() -->
+                <option data-bind="attr: {value: id}, text: name"></option>
+            <!-- /ko -->
+        </select>
+        <div class="donation-content-wrapper" data-bind="visible: productId() > 0">
+            <div class="donation-product-container">
+                <div class="donation-image-wrapper">
+                    <img data-bind="attr: {src: image(), alt: productName()}">
+                </div>
+                <div class="donation-details">
+                    <span data-bind="text: productName()"></span>
+                    <span data-bind="text: price()"></span>
+                    <span data-bind="text: description()"></span>
+                </div>
+            </div>
+            <div class="donation-amount-container">
+                <input type="hidden" name="is_donation" value="1">
+                <label class="donation-radio-btn">$2
+                    <input type="radio" name="custom_price" data-bind="checked: setCustomPrice(2), attr: {value: customPrice()}" />
+                    <span class="donation-checkmark"></span>
+                </label>
+                <label class="donation-radio-btn">$4
+                    <input type="radio" name="custom_price" data-bind="checked: setCustomPrice(4), attr: {value: customPrice()}" />
+                    <span class="donation-checkmark"></span>
+                </label>
+                <label class="donation-radio-btn">$10
+                    <input type="radio" name="custom_price" data-bind="checked: setCustomPrice(10), attr: {value: customPrice()}" />
+                    <span class="donation-checkmark"></span>
+                </label>
+                <label class="donation-radio-btn other">Other:
+                    <input type="radio" name="custom_price" data-bind="checked: setCustomPrice(getDynamicCustomPriceValue()), attr: {value: customPrice()}" />
+                    <span class="donation-checkmark"></span>
+                    $<input type="number" id="dynamic-custom-price" data-bind="event:{ change: setCustomPriceEvent}" />​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+                </label>
+                <button type="submit" title="Donate to program" class="action tocart primary">
+                    <span data-bind="i18n: 'Donate to program'"></span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

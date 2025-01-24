@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <SergiiBuinii_cartabandonmentemail>
+            <general_settings>
+                <enabled>0</enabled>
+                <template_id>11350882</template_id>
+                <basket_id>16250</basket_id>
+                <abandon_html>16257</abandon_html>
+            </general_settings>
+            <cron_settings>
+                <email_send_lifetime>1</email_send_lifetime>
+                <email_send_schedule>3,5,8</email_send_schedule>
+            </cron_settings>
+            <filter_settings>
+                <enabled>0</enabled>
+            </filter_settings>
+        </SergiiBuinii_cartabandonmentemail>
+    </default>
+</config>

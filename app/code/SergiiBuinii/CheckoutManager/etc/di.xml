@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Capture checkout errors on order place on the service layer -->
+    <type name="Magento\Sales\Model\Service\OrderService">
+        <plugin name="serviceOrderPlaceLogger"
+                type="SergiiBuinii\CheckoutManager\Plugin\Magento\Sales\Model\Service\OrderService"
+                sortOrder="999" />
+    </type>
+    <!-- Capture checkout errors on order place payment -->
+    <type name="Magento\Sales\Model\Order">
+        <plugin name="salesOrderPlaceLogger"
+                type="SergiiBuinii\CheckoutManager\Plugin\Magento\Sales\Model\Order"
+                sortOrder="999" />
+    </type>
+    <!-- Order success redirection -->
+    <type name="Magento\Checkout\Controller\Onepage\Success">
+        <plugin name="checkoutControllerOnepageSuccess"
+                type="SergiiBuinii\CheckoutManager\Plugin\Magento\Checkout\Controller\Onepage\Success"
+                sortOrder="999" />
+    </type>
+    <!-- Guest place order with payment information saving  -->
+    <type name="Magento\Checkout\Model\GuestPaymentInformationManagement">
+        <plugin name="checkoutGuestPlaceOrderWithPaymentInformationSaving"
+                type="SergiiBuinii\CheckoutManager\Plugin\Magento\Checkout\Model\GuestPaymentInformationManagement"
+                sortOrder="999" />
+    </type>
+    <!-- Place order with payment information saving  -->
+    <type name="Magento\Checkout\Model\PaymentInformationManagement">
+        <plugin name="checkoutPlaceOrderWithPaymentInformationSaving"
+                type="SergiiBuinii\CheckoutManager\Plugin\Magento\Checkout\Model\PaymentInformationManagement"
+                sortOrder="999" />
+    </type>
+
+    <!-- module logger -->
+    <type name="SergiiBuinii\CheckoutManager\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="SergiiBuinii\CheckoutManager\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">checkoutManagerLogger</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">SergiiBuinii\CheckoutManager\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
